@@ -19,9 +19,9 @@ class login extends StatelessWidget {
         if (state is LoginsuccessState) {
           if (state.loginmodel.status) {
             print(state.loginmodel.message);
+            token=state.loginmodel.data.token;
             showtoast(text: '${state.loginmodel.message}',state: toastStates.SUCESS);
            CacheHelper.saveData(key:"token", value: state.loginmodel.data.token).then((value) {
-             token=state.loginmodel.data.token;
             navigatandFinish(context, home());
            });
           } else {

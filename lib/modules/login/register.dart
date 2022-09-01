@@ -23,9 +23,9 @@ class Register extends StatelessWidget {
         if (state is SignupsuccessState) {
           if (state.loginmodel.status) {
             print(state.loginmodel.message);
+            token=state.loginmodel.data.token;
             showtoast(text: '${state.loginmodel.message}',state: toastStates.SUCESS);
             CacheHelper.saveData(key:"token", value: state.loginmodel.data.token).then((value) {
-              token=state.loginmodel.data.token;
               navigatandFinish(context, home());
             });
           } else {
@@ -79,7 +79,7 @@ class Register extends StatelessWidget {
                           label: "Email",
                           isPassword: false,
                           type: TextInputType.text,
-                          prefix: Icons.person,
+                          prefix: Icons.email_outlined,
                           validate: (value) {
                             if (value.isEmpty) {
                               return "email can't be empty";

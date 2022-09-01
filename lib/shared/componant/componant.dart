@@ -42,8 +42,10 @@ class titlepageview {
 }
 
 void logout(context) async {
-  await CacheHelper.removedata(key: 'token').then((value) {
+  await CacheHelper.removedata(key:"token").then((value){
     if (value) {
+      print(value);
+      print(CacheHelper.getdata(key: 'token'));
       navigatandFinish(context, login());
       showtoast(text: "logout Done", state: toastStates.SUCESS);
     } else {

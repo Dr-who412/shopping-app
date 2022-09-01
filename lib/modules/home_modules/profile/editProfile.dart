@@ -69,7 +69,7 @@ class EditProfile extends StatelessWidget {
                     label: "Email",
                     isPassword: false,
                     type: TextInputType.text,
-                    prefix: Icons.person,
+                    prefix: Icons.email_outlined,
                     validate: (value) {
                       if (value.isEmpty) {
                         return "email can't be empty";

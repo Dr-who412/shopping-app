@@ -21,7 +21,8 @@ class Favorites extends StatelessWidget {
       },
       builder: (context, state) {
         var cubit = ShopCubit.get(context);
-        var list = cubit.favoritProduct?.data?.datafav;
+        var list = (cubit.favoritProduct?.data?.datafav??null)!;
+
         return SafeArea(
             child: list?.length!= 0
                 ? ListView.builder(
@@ -31,7 +32,7 @@ class Favorites extends StatelessWidget {
                         onTap: () {
                           showCustomBottomSheet(
                               context: context,
-                              title: list![index].product?.name,
+                              title: list[index].product?.name,
                               subTitle: "${list[index].product?.price} ",
                               imageUrl: list[index].product?.image,
                               description: list[index].product?.description);
@@ -50,7 +51,7 @@ class Favorites extends StatelessWidget {
                                   child: Padding(
                                       padding: EdgeInsets.all(4),
                                       child: Image.network(
-                                        "${list![index].product?.image}",
+                                        "${list[index].product?.image}",
                                         errorBuilder: (BuildContext context,
                                             Object exception,
                                             StackTrace? stackTrace) {

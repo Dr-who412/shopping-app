@@ -27,7 +27,8 @@ void main() async {
 
   late Widget widget;
   bool? onBoarding = CacheHelper.getdata(key: 'onBoarding');
-  token = CacheHelper.getdata(key: 'token') ?? '';
+  token = CacheHelper.getdata(key:'token') ;
+  print(token);
   if (onBoarding != null) {
     if (token != null)
       widget = home();
@@ -56,6 +57,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) => ShopCubit()
               ..getHome()
+              ..getProfile()
               ..getCategory()
               ..getFavorite()
               ..getProfile()),

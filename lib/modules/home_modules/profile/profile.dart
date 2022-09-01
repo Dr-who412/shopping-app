@@ -192,7 +192,6 @@ class _ProfileState extends State<Profile> {
                       children: [
                         CircleAvatar(
                           backgroundImage:
-
                               NetworkImage(
                             '${ShopCubit.get(context).profile?.data?.image}',
                           ),

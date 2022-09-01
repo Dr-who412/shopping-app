@@ -39,7 +39,9 @@ class Product extends StatelessWidget {
                   return bannertItem(ShopCubit.get(context).homeModel);
                 },
                 fallback: (context) =>
-                    Center(child: CircularProgressIndicator()),
+                    Center(child: Container(
+                        margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height/8),
+                        child: CircularProgressIndicator())),
               ),
               //productItem(ShopCubit.get(context).homeModel?.data?.products[0], context)
               ConditionalBuilder(
@@ -50,9 +52,13 @@ class Product extends StatelessWidget {
                         ShopCubit.get(context).homeModel?.data?.products);
                   },
                   fallback: (BuildContext context) => Center(
-                          child: CircularProgressIndicator(
+
+                          child: Container(
+                            margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height/2),
+                            child: CircularProgressIndicator(
                         color: defultColor,
-                      ))),
+                      ),
+                          ))),
             ],
           ),
         ),
