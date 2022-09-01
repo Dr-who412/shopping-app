@@ -34,6 +34,7 @@ class _ProfileState extends State<Profile> {
         return Scaffold(
           body: Stack(
             children: [
+
               Image.network(
                 '${ShopCubit.get(context).profile?.data?.image}',
                 width: double.infinity,
@@ -190,32 +191,16 @@ class _ProfileState extends State<Profile> {
                     child: Column(
                       children: [
                         CircleAvatar(
-                          radius: 80,
-                          backgroundColor: Colors.white10,
-                          child:
-                              //Image.asset('${ShopCubit.get(context).profile?.data?.image}',
-                              Image.network(
-                            '${ShopCubit.get(context).profile?.data?.image}',
-                            width: double.infinity,
-                            fit: BoxFit.cover,
-                            height: MediaQuery.of(context).size.height / 2,
-                            loadingBuilder: (BuildContext context, Widget child,
-                                ImageChunkEvent? loadingProgress) {
-                              if (loadingProgress == null) {
-                                return child;
-                              }
+                          backgroundImage:
 
-                              return Center(
-                                child: CircularProgressIndicator(
-                                  value: loadingProgress.expectedTotalBytes !=
-                                          null
-                                      ? loadingProgress.cumulativeBytesLoaded /
-                                          loadingProgress.expectedTotalBytes!
-                                      : null,
-                                ),
-                              );
-                            },
+                              NetworkImage(
+                            '${ShopCubit.get(context).profile?.data?.image}',
                           ),
+                          radius: 85,
+                          backgroundColor: Colors.white10,
+
+
+
                         ),
                         SizedBox(
                           height: 2,
